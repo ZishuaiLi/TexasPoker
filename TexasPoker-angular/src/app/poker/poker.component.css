@@ -1,0 +1,11 @@
+.big-size{
+  max-width: 12%;
+}
+
+.normal-size{
+  max-width: 10%;
+}
+
+.small-size{
+  max-width: 50px;
+}

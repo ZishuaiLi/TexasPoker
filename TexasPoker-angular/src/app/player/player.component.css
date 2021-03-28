@@ -1,0 +1,39 @@
+.player-card-waiting  {
+  width: 150px;
+  height: 100px;
+  border: solid 1px #000;
+  line-height: 1;
+}
+
+.player-card-operating {
+  width: 150px;
+  height: 100px;
+  border: solid 2px #f00;
+  line-height: 1;
+}
+
+.card-name {
+  font-size: 15px;
+}
+.card-status{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.normal-info{
+  font-size: 12px;
+  line-height: 0.3;
+}
+
+.first-hand{
+  position: absolute;
+  bottom: 5%;
+  right: 20%;
+}
+
+
+.second-hand{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}

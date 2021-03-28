@@ -1,0 +1,62 @@
+<img class="table-img" src="assets/img/table.png"  alt="">
+
+<div class="first-card" *ngIf="gameStatus.id > 0">
+  <app-poker [size]="'big-size'" [cardName]="gameStatus.player.firstHand"></app-poker>
+  <app-poker [size]="'big-size'" [cardName]="gameStatus.player.secondHand"></app-poker>
+</div>
+
+<div class="player-list" *ngIf="gameStatus.id > 0 && gameStatus.otherPlayers.length !== 0">
+  <div mat-subheader>Players</div>
+  <mat-divider></mat-divider>
+  <mat-list role="list">
+    <ng-container *ngFor="let otherPlayer of gameStatus.otherPlayers">
+      <app-player [player]="otherPlayer"
+                  [isOperating]="otherPlayer.name === gameStatus.currentPlayer"></app-player>
+      <span>&nbsp;</span>
+    </ng-container>
+  </mat-list>
+</div>
+
+<div class="player-info" *ngIf="gameStatus.id > 0 && gameStatus.player.name !== ''">
+  <app-player [player]="gameStatus.player"
+              [isOperating]="gameStatus.player.name === gameStatus.currentPlayer"></app-player>
+</div>
+
+<div class="action-buttons" *ngIf="gameStatus.id > 0 && gameStatus.started">
+  <button mat-raised-button [disabled]="!enableCheck" (click)="doAction('check')" >Check</button> &nbsp;
+  <button mat-raised-button [disabled]="!enableCall" (click)="doAction('call')">Call</button> &nbsp;
+  <button mat-raised-button [disabled]="!enableRaise" (click)="doAction('raise')">Raise</button> &nbsp;
+  <button mat-raised-button [disabled]="!enableAllIn" (click)="doAction('allin')">All-in</button> &nbsp;
+  <button mat-raised-button [disabled]="!enableFold" (click)="doAction('fold')">Fold</button>
+</div>
+
+<div class="community-cards" *ngIf="gameStatus.id > 0 && (gameStatus.started || gameStatus.winner !== 'No winner')">
+  <ng-container *ngFor="let card of gameStatus.cards">
+    <app-poker [size]="'normal-size'" [cardName]="card"></app-poker>
+    <span>&nbsp;</span>
+  </ng-container>
+</div>
+
+<div [ngClass]="gameTipsClass" *ngIf="isInitializing || gameStatus.id > 0">
+  <p>{{gameTips}}</p>
+</div>
+
+
+<div class="room-id" *ngIf="gameStatus.id > 0">
+  <p>RoomID: {{gameStatus.id}}</p>
+</div>
+
+<div class="home-buttons">
+  <button mat-stroked-button *ngIf="gameStatus.id <= 0" (click)="deleteAccount()">Delete Account</button>
+  <p></p>
+  <button mat-stroked-button *ngIf="gameStatus.id <= 0" (click)="logout()">Log out</button>
+  <p></p>
+  <button mat-stroked-button *ngIf="gameStatus.id <= 0" (click)="createGame()">Create game</button>
+  <p></p>
+  <button mat-stroked-button *ngIf="gameStatus.id <= 0" (click)="joinGame()">Join game</button>
+  <p></p>
+  <button mat-stroked-button *ngIf="gameStatus.id > 0" (click)="leaveGame()">Leave game</button>
+  <p></p>
+  <button mat-stroked-button *ngIf="gameStatus.id > 0 && !gameStatus.started &&
+   gameStatus.host === gameStatus.player.name" (click)="startGame()">Start game</button>
+</div>

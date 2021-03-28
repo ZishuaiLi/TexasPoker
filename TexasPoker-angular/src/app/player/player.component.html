@@ -1,0 +1,10 @@
+<mat-card [ngClass]="usingClass">
+  <mat-card-title class="card-name">{{player.name}}</mat-card-title>
+  <mat-card-subtitle class="card-status">{{player.status}}</mat-card-subtitle>
+  <p class="normal-info">Order: {{player.order == -1 ? "-" : player.order}}</p>
+  <p class="normal-info">Time: {{player.remainTime == -1 ? "-" : player.remainTime.toString() + 's'}}</p>
+  <p class="normal-info">Bet: {{player.bet == -1 ? "-" : player.bet}}</p>
+  <p class="normal-info">Money: {{player.money == -1 ? "-" : player.money}}</p>
+  <app-poker class="first-hand" [size]="'small-size'" [cardName]="player.firstHand"></app-poker>
+  <app-poker class="second-hand" [size]="'small-size'" [cardName]="player.secondHand"></app-poker>
+</mat-card>

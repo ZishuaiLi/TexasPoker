@@ -1,0 +1,91 @@
+
+.table-img{
+  position: fixed;
+  max-width: 50%;
+  top: 15%;
+  left: 25%;
+  z-index:1
+}
+
+.first-card{
+  position: fixed;
+  bottom: 15%;
+  left: 43%;
+  z-index:3
+}
+
+.second-card{
+  position: fixed;
+  bottom: 15%;
+  left: 48%;
+  z-index:4
+}
+
+.action-buttons{
+  position: fixed;
+  width: 500px;
+  bottom: 8%;
+  left: 50%;
+  margin-left: -200px;
+  z-index:5
+}
+
+.home-buttons{
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  z-index: 5;
+}
+
+.player-list{
+  height: 70%;
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  overflow: auto;
+  z-index:2
+  /*border: solid 2px #000;*/
+}
+
+.community-cards{
+  position: fixed;
+  top: 36%;
+  left: 32%;
+  z-index:2
+}
+
+.player-info{
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index:2
+}
+
+.game-tips{
+  position: fixed;
+  z-index: 2;
+  width:100%;
+  text-align:center;
+  margin: 0 auto;
+  font-family: fantasy ;
+  font-size: 30px;
+}
+
+.game-tips-inactive{
+  color: #000;
+}
+
+.game-tips-active{
+  color: #f00;
+}
+
+.room-id{
+  position: fixed;
+  z-index: 2;
+  width:100%;
+  text-align:center;
+  margin: 0 auto;
+  font-family: fantasy ;
+  font-size: 20px;
+  top: 7%;
+}

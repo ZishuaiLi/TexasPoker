@@ -1,0 +1,10 @@
+.login-card{
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-position{
+  text-align: center;
+}
