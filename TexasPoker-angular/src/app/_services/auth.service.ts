@@ -4,7 +4,7 @@ import {User} from '../_models/user';
 
 import {HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+import apiprefix from '../../apiprefix';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -33,7 +33,7 @@ export class AuthService {
     // Changed to network based authentication strategy.
 
     // Read more here: https://angular.io/guide/http
-    return this.http.post<any>(`http://localhost:3030/user/authenticate`, { username, password })
+    return this.http.post<any>(apiprefix + `/user/authenticate`, { username, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   register(user: User) {
-    return this.http.post(`http://localhost:3030/user/register`, user);
+    return this.http.post(apiprefix + `/user/register`, user);
   }
 
 
@@ -58,6 +58,6 @@ export class AuthService {
   }
 
   deleteAccount() {
-    return this.http.delete(`http://localhost:3030/user/delete`);
+    return this.http.delete(apiprefix + `/user/delete`);
   }
 }

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {GameStatus} from '../_models/GameStatus';
 import {HttpClient} from '@angular/common/http';
-
+import apiprefix from '../../apiprefix';
 
 
 @Injectable({ providedIn: 'root' })
@@ -11,28 +11,28 @@ export class GameService {
   }
 
   postAction(roomID: number, action:string) {
-    return this.http.post(`http://localhost:3030/game/action`, {roomId: roomID, action: action});
+    return this.http.post(apiprefix + `/game/action`, {roomId: roomID, action: action});
   }
 
   getGameStatus() {
-    return this.http.get<GameStatus>(`http://localhost:3030/game/gamestatus`);
+    return this.http.get<GameStatus>(apiprefix + `/game/gamestatus`);
   }
 
   leaveGame(roomID: number) {
-    return this.http.post(`http://localhost:3030/game/leaveroom`, {roomId: roomID});
+    return this.http.post(apiprefix + `/game/leaveroom`, {roomId: roomID});
   }
 
   startGame(roomID: number) {
-    return this.http.post(`http://localhost:3030/game/startgame`, {roomId: roomID});
+    return this.http.post(apiprefix + `/game/startgame`, {roomId: roomID});
   }
 
 
   createGame() {
-    return this.http.get<number>(`http://localhost:3030/game/createroom`);
+    return this.http.get<number>(apiprefix + `/game/createroom`);
   }
 
   joinGame(roomID: number) {
-    return this.http.post(`http://localhost:3030/game/joinroom`, {roomId: roomID});
+    return this.http.post(apiprefix + `/game/joinroom`, {roomId: roomID});
   }
 
 
